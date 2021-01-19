@@ -99,7 +99,7 @@ def is_duplicated_number(three_digit):
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
 
     if len(set(list(three_digit)))==3:
-        return Flase
+        return False
     # ==================================
     return True
 
@@ -291,6 +291,8 @@ def main():
                 if is_validated_number(user_input) ==False:
                     print('Wrong Input, Input again')        
                 else:
+                    break
+            if user_input == '0':
                     break
             #결과 프린트
             print(f'Strikes : {get_strikes_or_ball(user_input,random_number)[0]} , Balls : {get_strikes_or_ball(user_input,random_number)[1]}')
