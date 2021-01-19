@@ -99,9 +99,9 @@ def is_duplicated_number(three_digit):
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
 
     if len(set(list(three_digit)))==3:
-        return True
+        return Flase
     # ==================================
-    return False
+    return True
 
 
 def is_validated_number(user_input_number):
@@ -286,9 +286,7 @@ def main():
             while True:
                 user_input = input('Input guess number : ')
                 if user_input == '0':
-                    print("Thank you for using this program")
-                    print("End of the Game")
-                    sys.exit()
+                    break
 
                 if is_validated_number(user_input) ==False:
                     print('Wrong Input, Input again')        
@@ -299,21 +297,26 @@ def main():
             #3strike로 게임이 끝
             if get_strikes_or_ball(user_input,random_number)[0] == 3:
                 break
-        
-        
+            if user_input == '0':
+                    break
+        if user_input == '0':
+                break
         
         while True:
             # 또 할건지 질문
             one_more_input = input('You win, one more(Y/N)?')
             if one_more_input == 0:
-                print("Thank you for using this program")
-                print("End of the Game")
-                sys.exit()
+                break
+        
+    
             elif is_no(one_more_input) or is_yes(one_more_input):
                 break
             else:
                 print('Wrong Input, Input again')
         # Yes면 계속, No면 끝
+        if one_more_input == 0:
+            break
+
         if is_no(one_more_input):
             break
         #elif is_yes(one_more_input):
